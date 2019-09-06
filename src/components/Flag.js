@@ -1,9 +1,19 @@
 import React from 'react';
 import { useSpring } from "react-spring";
+import styled from 'styled-components';
+import Content from './Content';
 
-const makeTransform = (xAndYOffset = 1) => (x, y) => `translate3d(${x / xAndYOffset}px,${y / xAndYOffset}px,0)`
+/*
+This component is gonna give the sense of dept to the elements within it, just like a mouse parallex would do it, check this react-spring demo for more on this: https://codesandbox.io/embed/r5x34869vq 
+*/ 
+
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
 
+const Container = styled.div`
+  width: inherit;
+  height: inherit;
+  position: relative;
+`
 
 const Flag = () => {
   const [props, set] = useSpring(() => ({
@@ -12,12 +22,11 @@ const Flag = () => {
   }))
 
   return (
-    <div
-    style={{width: 'inherit', height: 'inherit', position: `relative`}}
+    <Container
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
     >
-        {/* <Inner  makeTransform={makeTransform} animationProps={props} /> */}
-    </div>
+        <Content animationProps={props} />
+    </Container>
   )
 }
 

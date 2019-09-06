@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
-// import AppContainer from './Container';
+import Flag from './Flag';
 
 /*
-This container is gonna be in charged of giving the 3d effect when the mouse moves around the screen, it's doing so by using perspective, rotation and scaling (see the "trans" function) on the inner component, that is taking 100% size. 
+This container is gonna be in charged of giving the 3d effect when the mouse moves around the screen, it's doing so by using perspective, rotateX, rotateY and scaling (see the "trans" function) on an inner component that is taking 100% size. 
 For more on this, check the react-spring documentation, and this demo: https://codesandbox.io/embed/rj998k4vmm .
 */ 
 
@@ -22,12 +22,9 @@ const Inner = styled(animated.div)`
   height: 100%;
   background: #E62F2D;
 `
-
-//Color circles: #FEFF00; 
-
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 20,
-  (x - window.innerWidth / 2) / 20,
+  (x - window.innerWidth / 2) / 40,
   1.1,
 ]
 const trans = (x, y, s) =>
@@ -46,7 +43,7 @@ const FlagContainer = () => {
         onMouseLeave={() => set({ xys: [0, 0, 1] })}
         style={{ transform: props.xys.interpolate(trans) }}
       >
-        {/* <AppContainer/> */}
+        <Flag/>
       </Inner>
     </Container>
   )
