@@ -18,8 +18,9 @@ const Container = styled.div`
   align-items: center;
 `
 const Inner = styled(animated.div)`
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
+  border-radius: 2px;
   background: #E62F2D;
 `
 const calc = (x, y) => [
