@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-//with style-reset, you can bring all the old css resets you like so much to style components and is just one string interpolation away, YAY!
+//with style-reset, you can bring all the old css resets you like so much to style components and is all just one string interpolation away, YAY!
 
 const globalStyle = createGlobalStyle`
     ${reset}

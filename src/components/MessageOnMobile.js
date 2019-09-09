@@ -6,7 +6,7 @@ const Message = styled.div`
   width: 100vw;
   height: 100vh;
   background: #000;
-  z-index: 1;
+  z-index: 3;
   color: #fff;
   font-size: 2.5rem;
   text-align: center;

@@ -2,6 +2,7 @@ import React from "react";
 import GlobalStyle from './global-style';
 import FlagContainer from './components/FlagContainer';
 import MessageOnMobile from './components/MessageOnMobile';
+import WelcomeModal from './components/WelcomeModal';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <> 
       <GlobalStyle/>
       <MessageOnMobile/>
+      <WelcomeModal/>
       <FlagContainer/>
     </>
   )
