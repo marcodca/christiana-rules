@@ -24,6 +24,18 @@ const Modal = styled.div`
   transform: translate(-50%, -50%);
 `;
 
+const ModalText = styled.p`
+padding: 5%;
+text-align: center;
+font-size: 25px;
+span{
+    display: inline-block;
+    font-family: 'Pacifico', cursive;
+    font-size: 35px;
+    margin-bottom: 5%;
+}
+`
+
 const WelcomeModal = () => {
   const [isFirstTimeVisiting, setIsFirstTimeVisiting] = useState(true);
 
@@ -36,6 +48,10 @@ const WelcomeModal = () => {
       <>
         <Background />
         <Modal>
+            <ModalText>
+                <span>Christiania is a magical place in Copenhagen...</span><br/>
+                This freetown, is the perfect mix between colors, nature and art within an unique atmosphere. Although freedom is the corner stone of such an amazing place, there are still some rules you need to follow, specially in the Green light district. Drag the Christiania flag circles around to discover this rules.
+            </ModalText>
           <button
             onClick={() => {
               localStorage.setItem("visited", true);
