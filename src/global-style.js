@@ -11,6 +11,10 @@ const globalStyle = createGlobalStyle`
         overflow: hidden;
         font-family: 'Oxygen', sans-serif;
     }
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
 `;
 
 export default globalStyle;

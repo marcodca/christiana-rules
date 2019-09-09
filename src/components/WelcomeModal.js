@@ -15,6 +15,7 @@ const Background = styled.div`
 const Modal = styled.div`
   width: 50%;
   height: 60%;
+  min-width: 500px;
   position: absolute;
   z-index: 2;
   background: white;
@@ -25,16 +26,71 @@ const Modal = styled.div`
 `;
 
 const ModalText = styled.p`
-padding: 5%;
-text-align: center;
-font-size: 25px;
-span{
+  padding: 5%;
+  text-align: center;
+  font-size: 25px;
+  span {
     display: inline-block;
-    font-family: 'Pacifico', cursive;
+    font-family: "Pacifico", cursive;
     font-size: 35px;
     margin-bottom: 5%;
-}
-`
+
+    a {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 72%;
+        left: 0;
+        width: 100%;
+        height: 15%;
+        background: linear-gradient(
+          180deg,
+          rgba(90, 252, 95, 1) 0%,
+          rgba(38, 251, 0, 1) 100%
+        );
+        z-index: -1;
+        transform: skewY(20deg) rotate(340deg);
+      }
+    }
+  }
+`;
+
+const Button = styled.div`
+  font-family: "Pacifico", cursive;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 50%;
+  transform: translate(-50%);
+  position: relative;
+  overflow: visible;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -22%;
+    left: -8%;
+    width: 115%;
+    height: 140%;
+    border: 2px solid #000;
+    border-radius: 3px;
+    transform: rotate(2deg);
+  }
+`;
+const InnerButton = styled.div`
+  width: 110%;
+  height: 120%;
+  background: linear-gradient(
+          180deg,
+          rgba(90, 252, 95, 1) 0%,
+          rgba(38, 251, 0, 1) 100%
+        );;
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  z-index: -1;
+`;
 
 const WelcomeModal = () => {
   const [isFirstTimeVisiting, setIsFirstTimeVisiting] = useState(true);
@@ -48,18 +104,34 @@ const WelcomeModal = () => {
       <>
         <Background />
         <Modal>
-            <ModalText>
-                <span>Christiania is a magical place in Copenhagen...</span><br/>
-                This freetown, is the perfect mix between colors, nature and art within an unique atmosphere. Although freedom is the corner stone of such an amazing place, there are still some rules you need to follow, specially in the Green light district. Drag the Christiania flag circles around to discover this rules.
-            </ModalText>
-          <button
+          <ModalText>
+            <span>
+              Freetown{" "}
+              <a
+                href="https://en.wikipedia.org/wiki/Freetown_Christiania"
+                target="_blank"
+                title="Wikipedia"
+              >
+                Christiania{" "}
+              </a>{" "}
+              is a magical place in Copenhagen...
+            </span>
+            <br />
+            where you can find a perfect mix between colors, nature, and art
+            within a unique atmosphere. Although freedom is the cornerstone of
+            such an amazing place, there are still 3 rules you need to be aware
+            of, especially in the Greenlight district. Drag the Christiania flag
+            circles around to discover such rules.
+          </ModalText>
+          <Button
             onClick={() => {
               localStorage.setItem("visited", true);
               setIsFirstTimeVisiting(false);
             }}
           >
-            Ok
-          </button>
+            continue
+            <InnerButton/>
+          </Button>
         </Modal>
       </>
     )
