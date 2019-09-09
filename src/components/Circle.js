@@ -3,9 +3,11 @@ import styled from "styled-components/macro";
 import { useSpring, animated } from "react-spring";
 import { useGesture } from "react-with-gesture";
 import clamp from "lodash-es/clamp";
+import PropTypes from 'prop-types';
 import noRunningIcon from "../images/no-running-icon.svg";
 import noPhotoIcon from "../images/no-photo-icon.svg";
 import funIcon from "../images/fun-icon.svg";
+
 
 const BackCircle = styled.div`
   width: 250px;
@@ -105,5 +107,9 @@ const Circle = ({ rule }) => {
     </div>
   );
 };
+
+Circle.propTypes = {
+    rule : PropTypes.oneOf(['no-running','no-photo','have-fun']).isRequired
+}
 
 export default Circle;
