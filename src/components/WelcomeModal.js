@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import styled from "styled-components";
 
 /* The modal is meant to be displayed only the first time the page is visited */
@@ -27,7 +27,7 @@ const Modal = styled.div`
 const WelcomeModal = () => {
   const [isFirstTimeVisiting, setIsFirstTimeVisiting] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const visited = localStorage.getItem("visited");
     setIsFirstTimeVisiting(visited ? false : true);
   }, [isFirstTimeVisiting]);
