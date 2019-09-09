@@ -1,28 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const Message = styled.div`
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    z-index: 1;
-`
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 1;
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+  padding-top: 10%;
+  &::before{
+      content: "Undskyld";
+      font-size: 7rem;
+      position: absolute;
+      z-index: 0;
+      top: 250px;
+      left: 0px;
+      opacity: 0.2;
+      transform: rotate(35deg);
+      font-family: 'Pacifico', cursive;
+      letter-spacing: 12px;
+  }
+`;
 
 const MessageOnMobile = () => {
-     
-    const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-    const checkIsMobile = () => {
-        setIsMobile(window.innerWidth >= 768 ? false : true);
-    };
+  const checkIsMobile = () => {
+    setIsMobile(window.innerWidth >= 768 ? false : true);
+  };
 
-useEffect(()=>{
-    window.addEventListener('resize', checkIsMobile);
+  useEffect(() => {
+    checkIsMobile();  
+    window.addEventListener("resize", checkIsMobile);
     return () => {
-        window.removeEventListener('resize', checkIsMobile);
-    }
-})
-    return (isMobile && <Message/>)}
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  });
+  return (
+    isMobile && (
+      <Message>
+        <p>
+          Apologies, but this web page is available on desktop only, try again
+          when you are at home.
+        </p>
+      </Message>
+    )
+  );
+};
 
-export default MessageOnMobile
+export default MessageOnMobile;
