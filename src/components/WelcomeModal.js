@@ -92,7 +92,7 @@ const InnerButton = styled(animated.div)`
   z-index: -1;
 `;
 
-const WelcomeModal = () => {
+const WelcomeModal = ({setIsReady}) => {
   const [isFirstTimeVisiting, setIsFirstTimeVisiting] = useState(true);
 
   const [isButtonHovered, setIsButtonHovered] = useState(false);
@@ -158,6 +158,7 @@ const WelcomeModal = () => {
                 onClick={() => {
                   localStorage.setItem("visited", true);
                   setIsFirstTimeVisiting(false);
+                  setIsReady(true);
                 }}
               >
                 continue
