@@ -36,7 +36,7 @@ const Content = ({ animationProps, isReady }) => {
   const circlesTrail = useTrail(circleRules.length, {
     marginTop: `0px`,
     from: { marginTop: `-1500px` },
-    delay : isReady ? 0 : 1400
+    delay : isReady ? 0 : 1600
   });
 
   return (
