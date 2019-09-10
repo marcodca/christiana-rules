@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 import Flag from "./Flag";
@@ -44,16 +44,7 @@ const FlagContainer = ({isReady}) => {
         onMouseLeave={() => set({ xys: [0, 0, 1] })}
         style={{ transform: props.xys.interpolate(trans) }}
       >
-        {isReady &&         
-        <div
-          style={{
-            width: '100px',
-            height: `100px`,
-            background: 'green'
-          }}
-        />
-        }
-        <Flag />
+        <Flag isReady={isReady}/>
       </Inner>
     </Container>
   );

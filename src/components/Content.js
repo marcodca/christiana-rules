@@ -1,7 +1,7 @@
 import React from "react";
-import { animated } from "react-spring";
+import { animated, useTrail, useTransition } from "react-spring";
 import styled from "styled-components";
-import Circle from './Circle';
+import Circle from "./Circle";
 
 const Container = styled(animated.div)`
   width: 100%;
@@ -9,8 +9,8 @@ const Container = styled(animated.div)`
   display: flex;
   justify-content: center;
   align-content: center;
-`
-const CirclesContainer = styled.div`
+`;
+const CirclesContainer = styled(animated.div)`
   width: 100%;
   display: flex;
   align-items: center;
@@ -20,7 +20,23 @@ const CirclesContainer = styled.div`
 const makeTransform = (offset = 1) => (x, y) =>
   `translate3d(${x / offset}px,${y / offset}px,0)`;
 
-const Content = ({ animationProps }) => {
+const Content = ({ animationProps, isReady }) => {
+  //Array to reference the different circle rules as props in the trail mapping
+  const circleRules = ["no-running", "no-photo", "have-fun"];
+
+  //Animations
+
+  const circleContainerTransition = useTransition(isReady, null, {
+    from: { opacity: 0},
+    enter: { opacity: 1 },
+    leave: { opacity: 1 },
+  });
+
+  const circlesTrail = useTrail(circleRules.length, {
+    marginTop: `0px`,
+    from: { marginTop: `-1500px` },
+    delay : isReady ? 0 : 1400
+  });
 
   return (
     <>
@@ -29,11 +45,16 @@ const Content = ({ animationProps }) => {
           transform: animationProps.xy.interpolate(makeTransform(6))
         }}
       >
-        <CirclesContainer>
-          <Circle rule={'no-running'}/>
-          <Circle rule={'no-photo'}/>
-          <Circle rule={'have-fun'}/>
-        </CirclesContainer>
+        {circleContainerTransition.map(
+          ({ item, key, props }) =>
+            item && (
+              <CirclesContainer key={key} props={props}>
+                {circlesTrail.map((props, index) => (
+                  <Circle transition={props} rule={circleRules[index]} />
+                ))}
+              </CirclesContainer>
+            )
+        )}
       </Container>
     </>
   );

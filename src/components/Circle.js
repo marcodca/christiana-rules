@@ -3,11 +3,15 @@ import styled from "styled-components/macro";
 import { useSpring, animated } from "react-spring";
 import { useGesture } from "react-with-gesture";
 import clamp from "lodash-es/clamp";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import noRunningIcon from "../images/no-running-icon.svg";
 import noPhotoIcon from "../images/no-photo-icon.svg";
 import funIcon from "../images/fun-icon.svg";
 
+const Container = styled(animated.div)`
+  width: 250px;
+  height: 250px;
+`;
 
 const BackCircle = styled.div`
   width: 250px;
@@ -45,19 +49,19 @@ const rules = {
         don't run - <br /> it causes panic
       </span>
     ),
-    icon: noRunningIcon,
+    icon: noRunningIcon
   },
   "no-photo": {
     text: "no photos",
-    icon: noPhotoIcon,
+    icon: noPhotoIcon
   },
   "have-fun": {
     text: "have fun",
-    icon: funIcon,
+    icon: funIcon
   }
 };
 
-const Circle = ({ rule }) => {
+const Circle = ({ rule, transition }) => {
   //State for styling the pointer accordingly
   const [isGrabbed, setIsGrabbed] = useState(false);
 
@@ -82,12 +86,7 @@ const Circle = ({ rule }) => {
   `;
 
   return (
-    <div
-      css={`
-        width: 250px;
-        height: 250px;
-      `}
-    >
+    <Container style={transition}>
       <FrontCircle
         {...bind()}
         style={{
@@ -104,12 +103,12 @@ const Circle = ({ rule }) => {
           {rules[rule].text}
         </p>
       </BackCircle>
-    </div>
+    </Container>
   );
 };
 
 Circle.propTypes = {
-    rule : PropTypes.oneOf(['no-running','no-photo','have-fun']).isRequired
-}
+  rule: PropTypes.oneOf(["no-running", "no-photo", "have-fun"]).isRequired
+};
 
 export default Circle;

@@ -145,7 +145,7 @@ const WelcomeModal = ({setIsReady}) => {
                 ...where you can find a perfect mix between colors, nature, and
                 art within a unique atmosphere. Although freedom is the
                 cornerstone of such an amazing place, there are still 3 rules
-                you need to be aware of, especially in the Greenlight district.
+                you need to be aware of, especially in the green-light district.
                 Drag the Christiania flag circles around to discover such rules.
               </ModalText>
               <Button

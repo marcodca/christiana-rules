@@ -15,7 +15,7 @@ const Container = styled.div`
   position: relative;
 `
 
-const Flag = () => {
+const Flag = ({isReady}) => {
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
     config: { mass: 10, tension: 550, friction: 140 },
@@ -25,7 +25,7 @@ const Flag = () => {
     <Container
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
     >
-        <Content animationProps={props} />
+        <Content animationProps={props} isReady={isReady}/>
     </Container>
   )
 }
