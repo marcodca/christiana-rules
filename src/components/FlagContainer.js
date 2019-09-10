@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 import Flag from "./Flag";
+import PropTypes from "prop-types";
 
 /*
 This container is gonna be in charged of giving the 3d effect when the mouse moves around the screen, it's doing so by using perspective, rotateX, rotateY and scaling (see the "trans" function) on an inner component that is taking 100% size. 
@@ -49,5 +50,7 @@ const FlagContainer = ({isReady}) => {
     </Container>
   );
 };
+
+FlagContainer.propTypes = { isReady : PropTypes.bool };
 
 export default FlagContainer;

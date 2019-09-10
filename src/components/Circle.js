@@ -75,7 +75,7 @@ const Circle = ({ rule, transition }) => {
       config: { mass: velocity, tension: 500 * velocity, friction: 50 }
     });
   });
-
+ 
   const FrontCircle = styled(animated.div)`
     width: 250px;
     height: 250px;
@@ -108,7 +108,8 @@ const Circle = ({ rule, transition }) => {
 };
 
 Circle.propTypes = {
-  rule: PropTypes.oneOf(["no-running", "no-photo", "have-fun"]).isRequired
+  rule: PropTypes.oneOf(["no-running", "no-photo", "have-fun"]).isRequired,
+  transition : PropTypes.object.isRequired
 };
 
 export default Circle;

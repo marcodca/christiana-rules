@@ -10,7 +10,7 @@ function App() {
   //State that triggers circles trail animation
   const [isReady, setIsReady] = useState(false);
   useEffect(()=>{
-    setIsReady(localStorage.getItem('visited'))
+    setIsReady(Boolean(localStorage.getItem('visited')))
   },[])
 
   return (

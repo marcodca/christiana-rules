@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { animated, useSpring, useTransition } from "react-spring";
+import PropTypes from "prop-types";
 
 /* The modal is meant to be displayed only the first time the page is visited */
 
@@ -170,5 +171,7 @@ const WelcomeModal = ({setIsReady}) => {
     </>
   );
 };
+
+WelcomeModal.propTypes = { setIsReady : PropTypes.func}
 
 export default WelcomeModal;

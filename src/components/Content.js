@@ -2,6 +2,7 @@ import React from "react";
 import { animated, useTrail, useTransition } from "react-spring";
 import styled from "styled-components";
 import Circle from "./Circle";
+import PropTypes from "prop-types";
 
 const Container = styled(animated.div)`
   width: 100%;
@@ -50,7 +51,7 @@ const Content = ({ animationProps, isReady }) => {
             item && (
               <CirclesContainer key={key} props={props}>
                 {circlesTrail.map((props, index) => (
-                  <Circle transition={props} rule={circleRules[index]} />
+                  <Circle transition={props} rule={circleRules[index]} key={index}/>
                 ))}
               </CirclesContainer>
             )
@@ -59,5 +60,10 @@ const Content = ({ animationProps, isReady }) => {
     </>
   );
 };
+
+Content.propTypes = {
+  animationProps: PropTypes.object.isRequired,
+  isReady : PropTypes.bool
+}
 
 export default Content;
