@@ -6,7 +6,7 @@ import WelcomeModal from './components/WelcomeModal';
 
 
 function App() {
-
+  
   //State that triggers circles trail animation
   const [isReady, setIsReady] = useState(false);
   useEffect(()=>{

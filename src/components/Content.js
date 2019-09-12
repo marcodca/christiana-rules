@@ -1,5 +1,5 @@
 import React from "react";
-import { animated, useTrail, useTransition } from "react-spring";
+import { animated, useTrail } from "react-spring";
 import styled from "styled-components";
 import Circle from "./Circle";
 import PropTypes from "prop-types";
@@ -27,16 +27,9 @@ const Content = ({ animationProps, isReady }) => {
 
   //Animations
 
-  const circleContainerTransition = useTransition(isReady, null, {
-    from: { opacity: 0},
-    enter: { opacity: 1 },
-    leave: { opacity: 1 },
-  });
-
   const circlesTrail = useTrail(circleRules.length, {
     marginTop: `0px`,
     from: { marginTop: `-1500px` },
-    delay : isReady ? 0 : 1600
   });
 
   return (
@@ -46,16 +39,20 @@ const Content = ({ animationProps, isReady }) => {
           transform: animationProps.xy.interpolate(makeTransform(6))
         }}
       >
-        {circleContainerTransition.map(
-          ({ item, key, props }) =>
-            item && (
-              <CirclesContainer key={key} props={props}>
-                {circlesTrail.map((props, index) => (
-                  <Circle transition={props} rule={circleRules[index]} key={index}/>
-                ))}
-              </CirclesContainer>
-            )
-        )}
+        <CirclesContainer>
+          {circlesTrail.map((props, index) => {
+            return (
+              isReady && (
+                <Circle
+                  transition={props}
+                  rule={circleRules[index]}
+                  key={index}
+                />
+              )
+            );
+          })}
+        </CirclesContainer>
+        )
       </Container>
     </>
   );
@@ -63,7 +60,7 @@ const Content = ({ animationProps, isReady }) => {
 
 Content.propTypes = {
   animationProps: PropTypes.object.isRequired,
-  isReady : PropTypes.bool
-}
+  isReady: PropTypes.bool
+};
 
 export default Content;

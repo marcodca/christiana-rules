@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
 const Message = styled.div`
@@ -11,6 +11,7 @@ const Message = styled.div`
   font-size: 2.5rem;
   text-align: center;
   padding-top: 10%;
+  pointer-events: none;
   &::before{
       content: "Undskyld";
       font-size: 7rem;
@@ -26,21 +27,22 @@ const Message = styled.div`
 `;
 
 const MessageOnMobile = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  const checkIsMobile = () => {
-    setIsMobile(window.innerWidth >= 768 ? false : true);
-  };
-
-  useEffect(() => {
-    checkIsMobile();  
-    window.addEventListener("resize", checkIsMobile);
-    return () => {
-      window.removeEventListener("resize", checkIsMobile);
+    const [isMobile, setIsMobile] = useState(false);
+  
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth >= 768 ? false : true);
     };
-  });
+  
+    useEffect(() => {
+      checkIsMobile();  
+      window.addEventListener("resize", checkIsMobile);
+      return () => {
+        window.removeEventListener("resize", checkIsMobile);
+      };
+    });
+
   return (
-    isMobile && (
+    isMobile &&
       <Message>
         <p>
           Apologies, but this web page is available on desktop only, try again
@@ -48,7 +50,6 @@ const MessageOnMobile = () => {
         </p>
       </Message>
     )
-  );
 };
 
 export default MessageOnMobile;
