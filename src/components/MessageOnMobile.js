@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Message = styled.div`
@@ -11,38 +11,38 @@ const Message = styled.div`
   font-size: 2.5rem;
   text-align: center;
   padding-top: 10%;
-  pointer-events: none;
+  overflow: hidden;
   &::before{
       content: "Undskyld";
-      font-size: 7rem;
+      font-size: 6rem;
       position: absolute;
       z-index: 0;
-      top: 250px;
-      left: 0px;
-      opacity: 0.2;
-      transform: rotate(35deg);
+      top: 40%;
+      left: 50%;
+      opacity: 0.1;
+      transform: rotate(35deg) translate(-50%);
       font-family: 'Pacifico', cursive;
       letter-spacing: 12px;
   }
 `;
 
 const MessageOnMobile = () => {
-    const [isMobile, setIsMobile] = useState(false);
+    // const [isMobile, setIsMobile] = useState(false);
   
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth >= 768 ? false : true);
-    };
+    // const checkIsMobile = () => {
+    //   setIsMobile(window.innerWidth >= 768 ? false : true);
+    // };
   
-    useEffect(() => {
-      checkIsMobile();  
-      window.addEventListener("resize", checkIsMobile);
-      return () => {
-        window.removeEventListener("resize", checkIsMobile);
-      };
-    });
+    // useEffect(() => {
+    //   checkIsMobile();  
+    //   window.addEventListener("resize", checkIsMobile);
+    //   return () => {
+    //     window.removeEventListener("resize", checkIsMobile);
+    //   };
+    // });
 
   return (
-    isMobile &&
+    // isMobile &&
       <Message>
         <p>
           Apologies, but this web page is available on desktop only, try again

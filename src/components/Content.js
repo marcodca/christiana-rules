@@ -52,7 +52,6 @@ const Content = ({ animationProps, isReady }) => {
             );
           })}
         </CirclesContainer>
-        )
       </Container>
     </>
   );
