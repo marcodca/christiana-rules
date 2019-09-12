@@ -3,6 +3,7 @@ import GlobalStyle from "./global-style";
 import FlagContainer from "./components/FlagContainer";
 import MessageOnMobile from "./components/MessageOnMobile";
 import WelcomeModal from "./components/WelcomeModal";
+import SideBar from './components/SideBar';
 import { useIsMobile } from './hooks';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <>
           <WelcomeModal setIsReady={setIsReady} />
           <FlagContainer isReady={isReady} />
+          <SideBar/>
         </>
       )}
     </>
