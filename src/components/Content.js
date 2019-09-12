@@ -25,8 +25,7 @@ const Content = ({ animationProps, isReady }) => {
   //Array to reference the different circle rules as props in the trail mapping
   const circleRules = ["no-running", "no-photo", "have-fun"];
 
-  //Animations
-
+  //Animation
   const circlesTrail = useTrail(circleRules.length, {
     marginTop: `0px`,
     from: { marginTop: `-1500px` },

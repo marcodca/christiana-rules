@@ -8,14 +8,16 @@ import noRunningIcon from "../images/no-running-icon.svg";
 import noPhotoIcon from "../images/no-photo-icon.svg";
 import funIcon from "../images/fun-icon.svg";
 
+const size = `250px`
+
 const Container = styled(animated.div)`
-  width: 250px;
-  height: 250px;
+  width: ${size};
+  height: ${size};
 `;
 
 const BackCircle = styled.div`
-  width: 250px;
-  height: 250px;
+  width: ${size};
+  height: ${size};
   border-radius: 50%;
   position: absolute;
   z-index: -1;
@@ -77,8 +79,8 @@ const Circle = ({ rule, transition }) => {
   });
  
   const FrontCircle = styled(animated.div)`
-    width: 250px;
-    height: 250px;
+    width: ${size};
+    height: ${size};
     border-radius: 50%;
     cursor: ${() => (isGrabbed ? `-webkit-grabbing` : `-webkit-grab`)};
     background: #feff00;
