@@ -8,7 +8,6 @@ import { useIsMobile } from './hooks';
 
 function App() {
 
-
   //State that triggers circles trail animation
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {

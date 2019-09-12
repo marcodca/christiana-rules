@@ -76,6 +76,7 @@ const SideBar = () => {
                 <img
                   width={80}
                   src={logo}
+                  alt={"marcodecara.com logo"}
                   css={`
                     filter: invert(100%);
                   `}
@@ -85,7 +86,7 @@ const SideBar = () => {
             <Info>
               Source:
               <a href={"https://github.com/marcodca/christiana-rules"}>
-                <img width={80} src={githubIcon} />
+                <img width={80} src={githubIcon} alt={"github logo"}/>
               </a>
             </Info>
           </>
