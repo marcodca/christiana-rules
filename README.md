@@ -32,4 +32,5 @@ npm start
 ```
 
 ## Acknowledgments
-This project was a fun opportunity to play around with a physics-based animation library like react-spring, and I was gladly surprised about how nice it can work with another tools that were already part of my development flow, like styled-components. It goes without saying that it was also great to somehow play tribute to an amazing place like Christiania.   
+This project was a fun opportunity to play around with a physics-based animation library like react-spring, and I was gladly surprised about how nice it can work with another tools that were already part of my development flow, like styled-components. It goes without saying that it was also great to somehow play tribute to an amazing place like Christiania.
+Please note that the project is currently only available for desktop, and not for mobile devices.    
