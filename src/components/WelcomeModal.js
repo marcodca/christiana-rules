@@ -25,6 +25,7 @@ const Modal = styled(animated.div)`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0px 4px 5px 4px rgb(0 0 0 / .6), 0px 10px 20px 20px rgb(0 0 0 / .6) ;
 `;
 
 const ModalText = styled.p`
