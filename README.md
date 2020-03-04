@@ -2,6 +2,8 @@
 
 A visual app with animations and gestures. Built with React and react-spring.
 
+  [Link to the app.](https://christiania-rules.herokuapp.com/)
+
 <p align="center">
 <img width="460" height="300" src="https://i.ibb.co/XX8y2XL/screely-1581695590142.png">
 </p>
